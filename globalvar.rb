@@ -1,4 +1,4 @@
-$a=10
+$a=20
 class class1
     def print_global
     puts "#$a"
