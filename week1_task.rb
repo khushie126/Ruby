@@ -12,17 +12,18 @@ color = gets.chomp
 puts "Hello #{name}, aged #{age}, who likes the color #{color}!"
 
 puts "#########################################################"
+
 #TASK2
 age = 20
 if age > 18
     puts "You are eligible to vote!"
-
 elsif age <18
     puts "You are not eligible to vote yet!"
 else 
     puts "please enter valid age"
 end
 puts "#########################################################"
+
 #TASK3
 array=[]
 puts "Enter your favourite food items :"
