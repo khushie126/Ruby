@@ -29,6 +29,7 @@ begin
 
 rescue ArgumentError
   puts "Invalid input! Please enter a valid number for age."
+  input = gets.chomp
 end
 
 puts "#########################################################"
@@ -64,7 +65,7 @@ my_hash.each {|k,v| puts "#{k.capitalize}:#{v}" }
 
 #TASK6
 loop do
-puts "Would you like to add more information to your profile? (yes/no) yes"
+puts "Would you like to add more information to your profile? (yes/no) "
 choice= gets.chomp
 break if choice =="no"
 puts "Enter the attribute name:"
