@@ -30,6 +30,7 @@ begin
 rescue ArgumentError
   puts "Invalid input! Please enter a valid number for age."
   input = gets.chomp
+  retry
 end
 
 puts "#########################################################"
