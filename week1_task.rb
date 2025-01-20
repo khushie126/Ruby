@@ -5,34 +5,50 @@
 puts "Please enter your name"
 name = gets.chomp
 puts "What's your age?"
-age = STDIN.gets.chomp.to_i
+age = gets.chomp.to_i
 puts "What's your favourite color?"
 color = gets.chomp
 
 puts "Hello #{name}, aged #{age}, who likes the color #{color}!"
 
 puts "#########################################################"
-#TASK2
-age = 20
-if age > 18
-    puts "You are eligible to vote!"
 
-elsif age <18
+#TASK2
+puts "enter your age: "
+input = gets.chomp
+begin
+  age = Integer(input)
+
+  if age > 18
+    puts "You are eligible to vote!"
+  elsif age < 18
     puts "You are not eligible to vote yet!"
-else 
-    puts "please enter valid age"
+  else 
+    puts "Please enter a valid age"
+  end
+
+rescue ArgumentError
+  puts "Invalid input! Please enter a valid number for age."
+  input = gets.chomp
+  retry
 end
+
 puts "#########################################################"
+
 #TASK3
 array=[]
-puts "Enter your favourite food items :"
+puts "Enter your 5 favourite food items :"
+max_size=5
 loop do
+    break if array.length >= max_size
     ary1 =gets.chomp
     break if ary1 == ""
     array << ary1
 end
 puts "Your favourite food items are: "
-puts array
+array.each_with_index do |array, index|
+    puts "#{index+1}: #{array}"
+  end
 
 puts "#########################################################"
 
@@ -49,21 +65,19 @@ puts "Here's your profile information!"
 my_hash.each {|k,v| puts "#{k.capitalize}:#{v}" }
 
 #TASK6
-puts "Would you like to add more information to your profile? (yes/no) yes"
+loop do
+puts "Would you like to add more information to your profile? (yes/no) "
 choice= gets.chomp
-
-while choice== "yes"
-
+break if choice =="no"
 puts "Enter the attribute name:"
 attribute=gets.chomp
-break if attribute =="done"
 
 puts "Enter the attribute value:"
 attribute_value=gets.chomp
 puts "#########################################################"
 puts "Updated Profile:"
 my_hash[attribute.to_sym]=attribute_value
-my_hash.each {|k,v| puts "#{k.capitalize}:#{v}" }
+my_hash.each {|k,v| puts "#{k.capitalize}:#{v}"}
 end
 
 
