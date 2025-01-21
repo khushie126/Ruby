@@ -3,7 +3,7 @@
 #Program 1
 module TransactionLogger
     def print_transactions()
-        print "Transaction log: \nDeposited: #{@ammount_deposited} \nWithdrew: #{@ammount_withdrew}"
+        print "Transaction log: \nDeposited: $#{@ammount_deposited} \nWithdrew: $#{@ammount_withdrew}"
     end 
 end
 class BankAccount
@@ -17,12 +17,12 @@ class BankAccount
 
     def deposit 
          puts "Enter the ammount you want to deposit: "
-         ammount = gets.to_i
+         ammount = gets.to_f
       
          if ammount > 0
             @balance += ammount
             @ammount_deposited = ammount
-            puts "Deposited: #{@ammount_deposited} . New balance: #{@balance}"
+            puts "Deposited: $#{@ammount_deposited} . New balance: $#{@balance}"
          else
             puts "Enter positive value"
          end
@@ -30,18 +30,18 @@ class BankAccount
 
     def withdraw
          puts "Enter the ammount you want to withdraw: "
-         ammount = gets.to_i
+         ammount = gets.to_f
          if @balance >= ammount
             @balance -= ammount
             @ammount_withdrew = ammount
-            puts "Withdrew: #{@ammount_withdrew} . New balance: #{@balance}"
+            puts "Withdrew: $#{@ammount_withdrew} . New balance: $#{@balance}"
          else
-            puts "Insufficient funds. Current balance: #{@balance}"
+            puts "Insufficient funds. Current balance: $#{@balance}"
          end
     end
 
     def check_balance()
-         puts "Current balance is: #{@balance}"
+         puts "Current balance is: $#{@balance}"
     end
 end
 
