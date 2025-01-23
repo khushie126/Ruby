@@ -41,7 +41,7 @@ class Student
             puts "Enter the subject name: "
             subject = gets.chomp
             puts "Enter marks for #{subject}: "
-            mark = gets.to_i
+            mark = gets.to_f
             if mark >= 0 && mark <= 100 
                @marks[subject] = mark
             else
@@ -51,19 +51,19 @@ class Student
                 retry
             end
         end 
-            @marks.each {|subject,mark|puts "Added mark for #{subject}: #{mark}"}
+            @marks.each {|subject,mark|puts "Added mark for #{subject}: #{mark.round(2)}"}
     end
     def display_grades
         puts "Report Card for #{@name}:"
         @marks.each do |subject, mark|
             grade = calculate_grade(mark)
-            puts "#{subject}: Mark = #{mark}, Grade = #{grade}"
+            puts "#{subject}: Mark = #{mark.round(2)}, Grade = #{grade}"
         end
           
           average = calculate_average(@marks)
           overall_grade = calculate_grade(average)
           
-          puts "Average Mark: #{average}, Overall Grade: #{overall_grade}"
+          puts "Average Mark: #{average.round(2)}, Overall Grade: #{overall_grade}"
     end
 end
 student = Student.new
